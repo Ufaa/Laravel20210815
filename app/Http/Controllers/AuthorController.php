@@ -44,7 +44,7 @@ class AuthorController extends Controller
         $this->validate($request, Author::$rules);
         $form = $request->all();
         Author::create($form);
-        return redirect('/');
+        return redirect('/home');
     }
     public function edit(Request $request)
     {
@@ -57,7 +57,7 @@ class AuthorController extends Controller
         $form = $request->all();
         unset($form['_token']);
         Author::where('id', $request->id)->update($form);
-        return redirect('/');
+        return redirect('/home');
     }
     public function delete(Request $request)
     {
@@ -67,7 +67,7 @@ class AuthorController extends Controller
     public function remove(Request $request)
     {
         Author::find($request->id)->delete();
-        return redirect('/');
+        return redirect('/home');
     }
 
     public function relate(Request $request) //追記

@@ -6,7 +6,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\SessionController;
 
 Route::get('/home', [AuthorController::class, 'index']);
-Route::get('/home', [AuthorController::class, 'index'])->middleware('auth');
+Route::get('/home', [AuthorController::class, 'index']);
 Route::get('/add', [AuthorController::class, 'add']);
 Route::post('/add', [AuthorController::class, 'create']);
 Route::get('/edit', [AuthorController::class, 'edit']);
@@ -20,6 +20,9 @@ Route::prefix('book')->group(function () {
   Route::get('/', [BookController::class, 'index']);
   Route::get('/add', [BookController::class, 'add']);
   Route::post('/add', [BookController::class, 'create']);
+  Route::get('fill', [BookController::class,'fillBook']);
+Route::get('create', [BookController::class,'createBook']);
+Route::get('insert', [BookController::class,'insertBook']);
 });
 Route::get('/relation', [AuthorController::class, 'relate']);
 
