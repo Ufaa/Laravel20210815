@@ -39,5 +39,6 @@ class BookController extends Controller
             'uuid' =>  $uuid,
             'name' => 'InsertBook',
             'price' => 1800,
-        ]);
+        ]);     
+    }
 }
